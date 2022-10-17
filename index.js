@@ -72,7 +72,6 @@ function search(){
         newDiv.innerText = d.name;
         search.appendChild(newDiv);
     });
-
     
 }
 
