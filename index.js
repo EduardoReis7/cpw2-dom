@@ -3,6 +3,8 @@
  */
 function background(){
 
+    document.body.style.backgroundColor = "#BECCC3";
+
     /**
      * Tarefa/Issue  1
      *
@@ -19,6 +21,11 @@ function background(){
  */
 function show(){
 
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var result = document.getElementById("result");
+    var p = document.createTextNode(fname + " " + lname);
+    result.appendChild(p);
      /**
       * Issue  2
       *
@@ -32,8 +39,6 @@ function show(){
  * digitados no campo de texto id='name'
  */
 function search(){
-
-    var data = [{name: "Rodrigo"}, {name: "Ricardo"}, {name: "Fabio"}, {name: "Alex"}, {name: "Sílvia"}];
 
     /**
      * Issue 3
@@ -52,6 +57,23 @@ function search(){
      * Além disso, a função removeAllChildren abaixo também pode ser útil para o desenvolvimento da solução
      */
 
+    var data = [{name: "Rodrigo"}, {name: "Ricardo"}, {name: "Fabio"}, {name: "Alex"}, {name: "Sílvia"}];
+
+    var fname = document.getElementById("name").value;
+
+    var filteredData = data.filter(d => fname.toUpperCase() === d.name.substring(0, fname.length).toUpperCase());
+
+    var search = document.getElementById("search");
+
+    removeAllChildren(search);
+
+    filteredData.forEach(d => {
+        let newDiv = document.createElement("div");
+        newDiv.innerText = d.name;
+        search.appendChild(newDiv);
+    });
+
+    
 }
 
 /**
